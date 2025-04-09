@@ -1,0 +1,61 @@
+[project]
+name = "pyenvmap"
+version = "0.1.0"
+description = "A schema-based environment variable loader for Python. Type-safe, validated, and plug-and-play."
+readme = "README.md"
+authors = [
+    { name = "Samuel Adole", email = "adoleichasamuel@gmail.com" }
+]
+license = { text = "MIT" }
+keywords = ["env", "dotenv", "configuration", "env variables", "schema", "validation"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: System :: Systems Administration"
+]
+requires-python = ">=3.9"
+
+[project.urls]
+Homepage = "https://github.com/samueladole/pyenvmap"
+Repository = "https://github.com/samueladole/pyenvmap"
+Issues = "https://github.com/samueladole/pyenvmap/issues"
+
+[tool.setuptools]
+packages = ["pyenvmap"]
+
+[tool.setuptools.package-data]
+pyenvmap = ["py.typed"]
+
+
+[tool.poetry.dependencies]
+pydantic = "^2.11.3"
+python-dotenv = "^1.1.0"
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.mypy]
+strict = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["pyenvmap"]
+
+[tool.ruff]
+select = ["E", "F", "C", "B", "D"]
+ignore = []
+
+per-file-ignores = { "__init__.py" = ["F401"] }
+
+line-length = 88
+target-version = "py38"
+
+exclude = ["tests"]
